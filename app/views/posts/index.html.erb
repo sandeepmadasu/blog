@@ -1,27 +1,29 @@
-<h1>Listing posts</h1>
+<style>table { table-layout: fixed; border-bottom-style:dotted;}
+td { width: 15%; }
+</style>
+<div class=" hero-unit">
+<h2>Listing posts</h2>
+   <br/>
 
-<table border="1">
-  <tr>
-    <th>Title</th>
-    <th>Message</th>
 
-    <th></th>
-    <th></th>
-  </tr>
+  <% @posts.each do |post| %>
+  <table>
+    <tr>
+    <th style="float: left">Title:
+    <%= link_to post.title, post %></th></tr>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= link_to post.title, post %></td>
-    <td><%= post.message %></td>
-
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <tr><td>Message:
+    <%= post.message %>               </td></tr><tr><td>
+             <%= link_to 'No. of Comments:', post %><%= post.comments.count %>  </td> </tr>
+    <tr><td><%= link_to 'Edit', edit_post_path(post) %>     |
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>  </td> </tr>
+  </table>
 <% end %>
-</table>
+
 
 <br />
 
-<%= link_to 'New Post', new_post_path, class: "btn" %>
+
 
 <p><%= will_paginate @posts %></p>
+</div>

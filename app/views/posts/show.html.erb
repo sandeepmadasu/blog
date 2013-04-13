@@ -1,3 +1,4 @@
+<div class=" hero-unit">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,9 +11,11 @@
   <%= @post.message %>
 </p>
 
-
+  <% if @post.comments.empty? %>
+        <% else %>
 <h2>Comments</h2>
 <%= render @post.comments %>
+  <% end %>
 
 <h2>Add a comment:</h2>
 <%= render "comments/form" %>
@@ -23,3 +26,4 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+</div>

@@ -1,11 +1,13 @@
 
+
+
 <p>
   <b>Comment:</b>
   <%= comment.comment %>
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [comment.post, comment],
+  <%= link_to 'Delete Comment', [comment.post, comment],
               :confirm => 'Are you sure?',
-              :method => :delete %>
+              :method => :delete , class: "btn"%>
 </p>
