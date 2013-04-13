@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Blog app", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "My Blog",  posts_path %></li>
+          <li><%= link_to "Create Post", new_post_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <%= yield %>
+</div>
+<footer class="footer">
+  <small>
+    <a href="#">Blog application</a>
+    by Sandeep
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "My Blog",  posts_path %></li>
+    </ul>
+  </nav>
+</footer>
+
+</body>
+</html>
